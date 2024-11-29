@@ -2,6 +2,21 @@
     margin: 0px;
 }
 
+/* styles.css */
+
+/* Reset margin and padding */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Full height for the background */
+}
+
+/* Use the WebP file as the background */
+body {
+    background-image: url("images/leaves.webp"); /* Path to your WebP file */
+}
+
 /* ===== Top Bar ===== */
 
 .top-bar {
@@ -160,23 +175,55 @@ input[type="number"] {
 
 /* ===== Home Page ===== */
 
+/* Recommended section container */
 .list-recommended {
     display: flex;
-    flex-direction: row;
-    border: 1px solid black;
-    margin-bottom: 20px;
+    gap: 1px; /* Set gap to 1px between items */
+    padding: 20px 0; /* Padding on top and bottom */
+    justify-content: space-between; /* Spread items across the available space */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    width: 100%; /* Ensures the container spans the entire width of the screen */
+    margin: 0 auto; /* Centers the container horizontally */
+    overflow: hidden; /* Hides any overflow content */
+}
+
+/* Each recommended item */
+
+/* Logo style for recommended items */
+.recommended-logo {
+    width: 100%; /* Makes sure the image uses the full width of its parent */
+    height: 100%; /* Makes sure the image uses the full height of its parent */
+    object-fit: contain; /* Ensures the image fits within the container without distortion */
+    display: block; /* Ensures the image is treated as a block element */
+    margin-left: auto;
+    margin-right: auto; /* Centers the logo horizontally */
+    object-position: center; /* Centers the image inside its box */
+}
+
+/* Name style for recommended items */
+.recommended-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px; /* Adds space between the logo and the name */
 }
 
 .item-recommended {
-    width: 25%;
-    height: 300px;
-    background-color: #4caf50;
-    color: white;
-    border: 1px solid black;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
+    flex-direction: column; /* Aligns logo and name vertically */
+    align-items: center; /* Centers content horizontally */
+    justify-content: center; /* Centers content vertically */
+    width: 320px; /* Set width of each item */
+    height: 300px; /* Set height of each item */
+    text-align: center; /* Centers text under the logo */
+    padding: 10px;
+    flex-shrink: 0; /* Prevent items from shrinking */
+    scroll-snap-align: start; /* Ensures smooth snapping to each item */
+    background-color: #f9f9f9; /* Optional: background color for better visibility */
+    border-radius: 8px; /* Optional: rounded corners for a nice look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for a raised effect */
+    overflow: hidden; /* Ensures the image stays within the box */
+    background-color: rgba(255, 255, 255, 0.3);
     cursor: pointer;
 }
 
@@ -186,17 +233,52 @@ input[type="number"] {
     scroll-behavior: smooth;
 }
 
-.item-cuisine {
-    width: 300px;
-    height: 300px;
-    background-color: #4caf50;
-    color: white;
-    border: 1px solid black;
+/* Container for the cuisine list */
+#list-cuisine {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    flex-shrink: 0;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    gap: 10px; /* Adds space between the items */
+    padding: 20px 0; /* Adjust padding for top/bottom */
+    justify-content: flex-start; /* Aligns items from the left */
+    scroll-snap-type: x mandatory; /* Snap scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+}
+
+/* Each cuisine item */
+.cuisine-item {
+    display: flex;
+    flex-direction: column; /* Aligns logo and name vertically */
+    align-items: center; /* Centers content horizontally */
+    justify-content: center; /* Centers content vertically */
+    width: 280px; /* Set width of each item */
+    height: 280px; /* Set height of each item */
+    text-align: center; /* Centers text under the logo */
+    padding: 10px;
+    flex-shrink: 0; /* Prevent items from shrinking */
+    scroll-snap-align: start; /* Ensures smooth snapping to each item */
+    background-color: #f9f9f9; /* Optional: background color for better visibility */
+    border-radius: 8px; /* Optional: rounded corners for a nice look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for a raised effect */
+    overflow: hidden; /* Ensures the image stays within the box */
+}
+
+/* Logo style */
+.cuisine-logo {
+    width: 100%; /* Makes sure the image uses the full width of its parent */
+    height: 90%; /* Makes sure the image uses the full height of its parent */
+    object-fit: contain; /* Ensures the image fits within the container without distortion */
+    display: block; /* Ensures the image is treated as a block element */
+    margin-left: auto;
+    margin-right: auto; /* Centers the logo horizontally */
+    object-position: center; /* Centers the image inside its box */
+}
+
+/* Name style */
+.cuisine-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px; /* Adds space between the logo and the name */
 }
 
 /* ===== Merchant Page ===== */
@@ -221,18 +303,63 @@ input[type="number"] {
 }
 
 .item-merchant {
+    display: flex;
     width: 300px;
     height: 500px;
-    background-color: #4caf50;
-    color: white;
-    border: 1px solid black;
-    border-radius: 8px;
-    display: flex;
     flex-direction: column;
+    margin: 1px;
+    padding: 1px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
     flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.item-image {
+    width: 300px;
+    height: 350px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.item-name,
+.item-calories,
+.item-price {
+    margin: 5px 0;
+    text-align: center;
+}
+
+.over-limit-warning {
+    color: red;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.add-cart-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.add-cart-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Make the images fit within each box without distortion */
+.merchant-logo {
+    width: 100%; /* Fill the box width */
+    height: 100%; /* Fill the box height */
+    object-fit: contain; /* Ensure the image doesn't stretch, but fits the box */
 }
 
 .cart-merchant {
@@ -373,4 +500,23 @@ input[type="number"] {
     flex-direction: row;
     justify-content: center;
     gap: 20px;
+}
+
+.toast-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 1;
 }

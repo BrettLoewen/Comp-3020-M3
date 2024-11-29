@@ -33,7 +33,7 @@
         <div class="calorie-progress-bar-container">
           <div id="calorie-progress-fill" class="calorie-progress-bar-fill"></div>
         </div>
-        <button class="calorie-progress-bar-search-button">🔎</button>
+        <button class="calorie-progress-bar-search-button" onclick="calorieProgressSearch()">🔎</button>
       </div>
       <div>
         <button class="profile-button" onclick="openProfile()">Profile</button>
@@ -71,10 +71,18 @@
       <!-- Recommended -->
       <h1>Recommended</h1>
       <section class="list-recommended">
-        <div class="item-recommended" onclick="openMerchantPage('subway')">SUBWAY</div>
-        <div class="item-recommended" onclick="openMerchantPage('nuburger')">NUBURGER</div>
-        <div class="item-recommended" onclick="openMerchantPage('booster-juice')">BOOSTER JUICE</div>
-        <div class="item-recommended" onclick="openMerchantPage('freshii')">FRESHII</div>
+        <div class="item-recommended" onclick="openMerchantPage('subway')">
+          <img src="images/subway.png" alt="Subway Logo" class="merchant-logo">
+        </div>
+        <div class="item-recommended nuburger" onclick="openMerchantPage('nuburger')">
+          <img src="images/nuburger.png" alt="Nuburger Logo" class="merchant-logo">
+        </div>
+        <div class="item-recommended booster" onclick="openMerchantPage('booster-juice')">
+          <img src="images/booster.webp" alt="Booster Juice Logo" class="merchant-logo">
+        </div>
+        <div class="item-recommended freshii" onclick="openMerchantPage('freshii')">
+          <img src="images/freshii.png" alt="Freshii Logo" class="merchant-logo">
+        </div>
       </section>
 
       <!-- Cuisines -->
@@ -111,6 +119,9 @@
         </section>
       </div>
     </section>
+
+    <!-- Toast -->
+    <div id="toast-container" class="toast-container"></div>
 
     <script src="script.js"></script>
   </body>

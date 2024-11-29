@@ -4,6 +4,7 @@
 let cart = [];
 
 // Define the merchant data
+
 const merchantData = [
     {
         id: "subway",
@@ -13,36 +14,43 @@ const merchantData = [
                 name: "Pizza Sub Melt",
                 calories: 220,
                 price: 8.49,
+                Image: "images/pizzasub.jpeg",
             },
             {
                 name: "BLT",
                 calories: 220,
                 price: 8.49,
+                Image: "images/blt.jpg",
             },
             {
                 name: "Tuna",
                 calories: 400,
                 price: 8.49,
+                Image: "images/tuna.webp",
             },
             {
                 name: "Pepsi",
                 calories: 300,
                 price: 4.49,
+                Image: "images/pepsi.png",
             },
             {
                 name: "Cookies",
                 calories: 350,
                 price: 4.99,
+                Image: "images/cookies.jpg",
             },
             {
                 name: "Item X",
                 calories: 500,
                 price: 9.99,
+                Image: "images/subitx.jpg",
             },
             {
                 name: "Item Y",
                 calories: 500,
                 price: 9.99,
+                Image: "images/subity.jpg",
             },
         ],
     },
@@ -54,36 +62,49 @@ const merchantData = [
                 name: "Item A",
                 calories: 400,
                 price: 8.99,
+                Image: "images/nitem1.jpg",
             },
             {
                 name: "Item B",
+                Image: "nitem1",
                 calories: 500,
                 price: 8.99,
+                Image: "images/nitem2.webp",
             },
             {
                 name: "Item C",
+                Image: "nitem1",
                 calories: 300,
                 price: 7.99,
+                Image: "images/nitem3.jpg",
             },
             {
                 name: "Item D",
+                Image: "nitem1",
                 calories: 600,
                 price: 9.99,
+                Image: "images/nitem4.jpg",
             },
             {
                 name: "Item E",
+                Image: "nitem1",
                 calories: 400,
                 price: 5.99,
+                Image: "images/nitem5.jpg",
             },
             {
                 name: "Item F",
+                Image: "nitem1",
                 calories: 200,
                 price: 4.99,
+                Image: "images/nitem6.webp",
             },
             {
                 name: "Item G",
+                Image: "nitem1",
                 calories: 250,
                 price: 4.99,
+                Image: "images/nitem7.webp",
             },
         ],
     },
@@ -95,36 +116,43 @@ const merchantData = [
                 name: "Item A",
                 calories: 200,
                 price: 5.99,
+                Image: "images/bj1.webp",
             },
             {
                 name: "Item B",
                 calories: 200,
                 price: 5.99,
+                Image: "images/bj2.webp",
             },
             {
                 name: "Item C",
                 calories: 300,
                 price: 8.99,
+                Image: "images/bj3.jpg",
             },
             {
                 name: "Item D",
                 calories: 500,
                 price: 15.99,
+                Image: "images/bj4.jpg",
             },
             {
                 name: "Item E",
                 calories: 500,
                 price: 15.99,
+                Image: "images/bj5.png",
             },
             {
                 name: "Item F",
                 calories: 400,
                 price: 9.99,
+                Image: "images/bj6.jpg",
             },
             {
                 name: "Item G",
                 calories: 500,
                 price: 9.99,
+                Image: "images/bj7.jpg",
             },
         ],
     },
@@ -136,36 +164,43 @@ const merchantData = [
                 name: "Item A",
                 calories: 300,
                 price: 5.99,
+                Image: "images/fi1.jpeg",
             },
             {
                 name: "Item B",
                 calories: 200,
                 price: 4.99,
+                Image: "images/fi2.jpg",
             },
             {
                 name: "Item C",
                 calories: 500,
                 price: 5.99,
+                Image: "images/fi3.jpg",
             },
             {
                 name: "Item D",
                 calories: 400,
                 price: 6.99,
+                Image: "images/fi4.jpeg",
             },
             {
                 name: "Item E",
                 calories: 500,
                 price: 7.99,
+                Image: "images/fi5.jpeg",
             },
             {
                 name: "Item F",
                 calories: 700,
                 price: 12.99,
+                Image: "images/fi6.jpeg",
             },
             {
                 name: "Item G",
                 calories: 500,
                 price: 7.99,
+                Image: "images/fi7.jpg",
             },
         ],
     },
@@ -173,27 +208,14 @@ const merchantData = [
 
 // Define the cuisine data
 const cuisineData = [
-    {
-        name: "Pizza",
-    },
-    {
-        name: "Mexican",
-    },
-    {
-        name: "Chinese",
-    },
-    {
-        name: "Indian",
-    },
-    {
-        name: "Cuisine X",
-    },
-    {
-        name: "Cuisine Y",
-    },
-    {
-        name: "Cuisine Z",
-    },
+    { name: "Pizza", logo: "images/pizza.jpg" },
+    { name: "Mexican", logo: "images/mexican.jpg" },
+    { name: "Indian", logo: "images/indian.jpg" },
+    { name: "Chinese", logo: "images/chinese.jpg" },
+    { name: "Greek", logo: "images/greek.jpeg" },
+    { name: "French", logo: "images/french.jpg" },
+    { name: "American", logo: "images/american.webp" },
+    // Add more cuisines as needed
 ];
 
 // Given a merchant id, return the merchant data object
@@ -252,7 +274,7 @@ function enableCalorieProgressBar() {
 function updateCalorieProgressBar() {
     let caloriesInCart = 0;
     cart.forEach((item) => {
-        caloriesInCart += item.calories;
+        caloriesInCart += item.calories * item.count;
     });
 
     const percentage = (caloriesInCart / calorieInput.value) * 100;
@@ -260,8 +282,12 @@ function updateCalorieProgressBar() {
     calorieProgressFill.style.width = `${percentage}%`;
 }
 
+function calorieProgressSearch() {
+    showToast("The search option has not been implemented for this prototype");
+}
+
 function openProfile() {
-    console.log("open profile");
+    showToast("The Profile page has not been implemented for this prototype");
 }
 
 // ===== Popups =====
@@ -310,7 +336,7 @@ function openOrder() {
     const costText = document.getElementById("text-cost-order");
     let totalCost = 0;
     cart.forEach((item) => {
-        totalCost += item.price;
+        totalCost += item.price * item.count;
     });
     costText.textContent = `TOTAL: \$${totalCost.toFixed(2)}`;
 }
@@ -318,6 +344,22 @@ function openOrder() {
 function closeOrder() {
     overlay.style.display = "none";
     popupOrder.style.display = "none";
+}
+
+function showToast(message) {
+    // Create a new toast element
+    const toast = document.createElement("div");
+    toast.className = "toast";
+    toast.textContent = message;
+
+    // Add the toast to the container
+    const container = document.getElementById("toast-container");
+    container.appendChild(toast);
+
+    // Remove the toast after 2 seconds
+    setTimeout(() => {
+        toast.remove();
+    }, 2000);
 }
 
 // ===== Page Management =====
@@ -350,13 +392,31 @@ function openHomePage(firstTime) {
     // Turn on the search bar
     enableSearchBar();
 
-    // Get the parent element for the list, create a div for each cuisine, and add the divs as children of the parent
-    const cuisineList = document.getElementById("list-cuisine");
+    // Reference the container where the cuisines will be added
+    const cuisineContainer = document.getElementById("list-cuisine");
+
+    // Generate HTML for each cuisine and append it to the container
     cuisineData.forEach((cuisine) => {
-        const cuisineDiv = document.createElement("div");
-        cuisineDiv.textContent = cuisine.name;
-        cuisineDiv.className = "item-cuisine";
-        cuisineList.appendChild(cuisineDiv);
+        const cuisineItem = document.createElement("div");
+        cuisineItem.classList.add("cuisine-item");
+
+        // Create the logo image
+        const cuisineLogo = document.createElement("img");
+        cuisineLogo.src = cuisine.logo;
+        cuisineLogo.alt = `${cuisine.name} Cuisine`;
+        cuisineLogo.classList.add("cuisine-logo");
+
+        // Create the name paragraph
+        const cuisineName = document.createElement("p");
+        cuisineName.textContent = cuisine.name;
+        cuisineName.classList.add("cuisine-name");
+
+        // Append logo and name to the cuisine item
+        cuisineItem.appendChild(cuisineLogo);
+        cuisineItem.appendChild(cuisineName);
+
+        // Append the cuisine item to the container
+        cuisineContainer.appendChild(cuisineItem);
     });
 
     // If the user should see the pick of the day popup, show it to them
@@ -440,57 +500,78 @@ function setupMerchantItems(merchant) {
         merchantItemList.removeChild(merchantItemList.firstChild);
     }
 
+    // Calorie limits
+    const calorieLimitPerItem = calorieItemInput.value;
+
+    // Calculate total calories in the cart
+    let caloriesInCart = 0;
+    cart.forEach((cartItem) => {
+        caloriesInCart += cartItem.calories * cartItem.count;
+    });
+
     // Create the items
     merchant.items.forEach((item) => {
-        // Create the item and show its name
+        // Create the container for the item
         const itemDiv = document.createElement("div");
-        itemDiv.textContent = item.name;
         itemDiv.className = "item-merchant";
-        merchantItemList.appendChild(itemDiv);
+
+        // Add the item's image if available
+        if (item.Image) {
+            const itemImage = document.createElement("img");
+            itemImage.src = item.Image; // Path or URL of the image
+            itemImage.alt = `${item.name} Image`;
+            itemImage.className = "item-image"; // Add class for styling
+            itemDiv.appendChild(itemImage);
+        }
+
+        // Show the item's name
+        const nameText = document.createElement("p");
+        nameText.textContent = item.name;
+        nameText.className = "item-name";
+        itemDiv.appendChild(nameText);
 
         // Show the item's calorie count
         const calorieText = document.createElement("p");
         calorieText.textContent = `${item.calories} Calories`;
+        calorieText.className = "item-calories";
         itemDiv.appendChild(calorieText);
 
         // Show the item's cost
         const priceText = document.createElement("p");
-        priceText.textContent = `\$${item.price}`;
+        priceText.textContent = `\$${item.price.toFixed(2)}`;
+        priceText.className = "item-price";
         itemDiv.appendChild(priceText);
 
-        // Determine if any items are over the user's item or total limits, and don't allow the user to order those items
-
-        const calorieLimitPerItem = calorieItemInput.value;
-
-        let caloriesInCart = 0;
-        cart.forEach((item) => {
-            caloriesInCart += item.calories;
-        });
-
+        // Check calorie limits and display warnings
         const overItemLimit =
             calorieLimitPerItem !== "" && item.calories > calorieLimitPerItem;
         const overTotalLimit =
             item.calories + caloriesInCart > calorieInput.value;
 
         if (overItemLimit) {
-            // Show the user that this item is over their per-item calorie limit
             const overLimitText = document.createElement("p");
             overLimitText.textContent = "OVER ITEM LIMIT";
+            overLimitText.className = "over-limit-warning";
             itemDiv.appendChild(overLimitText);
         } else if (overTotalLimit) {
-            // Show the item would put the user over their total calorie limit
             const overLimitText = document.createElement("p");
             overLimitText.textContent = "OVER TOTAL LIMIT";
+            overLimitText.className = "over-limit-warning";
             itemDiv.appendChild(overLimitText);
         }
 
-        // Create the add cart button for the item
+        // Create the add-to-cart button for the item
         const addCartButton = document.createElement("button");
         addCartButton.textContent = "Add to Cart";
+        addCartButton.className = "add-cart-button";
         addCartButton.onclick = function () {
             addToCart(item);
         };
+
         itemDiv.appendChild(addCartButton);
+
+        // Append the item to the list
+        merchantItemList.appendChild(itemDiv);
     });
 }
 
@@ -506,9 +587,26 @@ function setupCartItems() {
 
     // Create the items in the cart
     cart.forEach((item) => {
+        // Create a container for the cart item
         const itemDiv = document.createElement("div");
-        itemDiv.textContent = item.name;
-        itemDiv.className = "item-cart";
+        itemDiv.className = "cart-item";
+
+        // Show the item's name
+        const nameText = document.createElement("p");
+        nameText.textContent = `${item.name} (x${item.count})`;
+        nameText.className = "cart-item-name";
+        itemDiv.appendChild(nameText);
+
+        // Add a remove button for the item
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.className = "remove-cart-button";
+        removeButton.onclick = function () {
+            removeFromCart(item);
+        };
+        itemDiv.appendChild(removeButton);
+
+        // Append the cart item to the list
         cartItemList.appendChild(itemDiv);
     });
 
@@ -516,7 +614,7 @@ function setupCartItems() {
     const costText = document.getElementById("text-cost-merchant");
     let totalCost = 0;
     cart.forEach((item) => {
-        totalCost += item.price;
+        totalCost += item.price * item.count;
     });
     costText.textContent = `TOTAL: \$${totalCost.toFixed(2)}`;
 
@@ -529,8 +627,42 @@ function setupCartItems() {
 
 // Add the passed item to the user's cart
 function addToCart(item) {
-    // Add the item to the user's cart
-    cart.push(item);
+    // Check if the item already exists in the cart
+    const existingCartItem = cart.find(
+        (cartItem) => cartItem.name === item.name
+    );
+
+    if (existingCartItem) {
+        // If item exists, increase its count
+        existingCartItem.count += 1;
+    } else {
+        // Otherwise, add the item with an initial count of 1
+        cart.push({ ...item, count: 1 });
+    }
+
+    // Update the calorie bar
+    updateCalorieProgressBar();
+
+    // Refresh the merchant page to update the cart UI
+    openMerchantPage(currentMerchantPage);
+}
+
+// Remove an item from the user's cart or decrease its count
+function removeFromCart(item) {
+    // Find the item in the cart
+    const existingCartItem = cart.find(
+        (cartItem) => cartItem.name === item.name
+    );
+
+    if (existingCartItem) {
+        // Decrease the count of the item
+        existingCartItem.count -= 1;
+
+        // If count reaches 0, remove the item from the cart
+        if (existingCartItem.count === 0) {
+            cart = cart.filter((cartItem) => cartItem.name !== item.name);
+        }
+    }
 
     // Update the calorie bar
     updateCalorieProgressBar();
@@ -565,17 +697,19 @@ function openCartPage() {
 
     // Create new children for the user's cart using their cart data
     cart.forEach((item) => {
-        const itemDiv = document.createElement("div");
-        itemDiv.textContent = item.name;
-        itemDiv.className = "item-cart";
-        cartItemList.appendChild(itemDiv);
+        for (let i = 0; i < item.count; i++) {
+            const itemDiv = document.createElement("div");
+            itemDiv.textContent = item.name;
+            itemDiv.className = "item-cart";
+            cartItemList.appendChild(itemDiv);
+        }
     });
 
     // Calculate the price of the cart and display that to the user
     const costText = document.getElementById("text-cost-cart");
     let totalCost = 0;
     cart.forEach((item) => {
-        totalCost += item.price;
+        totalCost += item.price * item.count;
     });
     costText.textContent = `TOTAL: \$${totalCost.toFixed(2)}`;
 

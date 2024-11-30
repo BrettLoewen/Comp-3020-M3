@@ -9,22 +9,27 @@ body,
 html {
     margin: 0;
     padding: 0;
-    height: 100%; /* Full height for the background */
+    height: 100%; 
 }
 
 /* Use the WebP file as the background */
 body {
-    background-image: url("images/leaves.webp"); /* Path to your WebP file */
+    background-image: url("images/leaves.webp"); 
 }
 
 /* ===== Top Bar ===== */
 
 .top-bar {
-    padding: 20px;
+
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: linear-gradient(90deg, rgba(76, 175, 80, 0.9), rgba(34, 193, 195, 0.9));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-bottom: 2px solid #ddd;
+    font-family: Arial, sans-serif;
+    color: #fff;
 }
 
 /* Hide default arrows (for number input fields) in Chrome, Safari, Edge, and Opera */
@@ -42,36 +47,71 @@ input[type="number"] {
 .number-input {
     display: flex;
     align-items: center;
-    width: 120px;
+    gap: 10px;
 }
 
 .number-input-column {
     display: flex;
     flex-direction: column;
-    height: 60px;
+    align-items: center;
+    gap: 5px;
+}
+
+.number-input-column p {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #fff;
 }
 
 .number-input input {
     width: 80px;
+    height: 40px;
+    border: 2px solid #34a853;
+    border-radius: 30px;  
+    padding: 0 10px;
     text-align: center;
     font-size: 1.2rem;
-    padding: 0.2rem;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    color: #333;
+    transition: all 0.3s ease;
 }
 
-.number-input p {
-    height: 14px;
-    text-align: center;
-    font-size: 12px;
-    margin: 3px;
+/* Focus effect for the input */
+.number-input input:focus {
+    border-color: #009688;  
+    box-shadow: 0 2px 8px rgba(0, 150, 136, 0.3);
 }
 
-.number-input button {
-    background: none;
+.number-input .arrow-up,
+.number-input .arrow-down {
+    background: #34a853;
     border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;  
     cursor: pointer;
-    font-size: 1.2rem;
-    padding: 0.2rem;
-    width: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.number-input .arrow-up:hover,
+.number-input .arrow-down:hover {
+    background: #009688;  
+    transform: scale(1.1);  
+}
+
+.number-input .arrow-up:active,
+.number-input .arrow-down:active {
+    background: #00796b;  
+    transform: scale(0.95); 
 }
 
 /* Used to set the arrow button icons */
@@ -84,70 +124,98 @@ input[type="number"] {
 
 .search-bar {
     display: flex;
-    width: 500px;
-    height: 30px;
-    flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
 }
 
 .search-bar input {
-    width: 90%;
+    flex-grow: 1;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 0 15px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+}
+
+.search-bar input:focus {
+    border-color: white;
 }
 
 .hamburger-menu {
-    background: none;
-    border: 1px solid black;
-    border-radius: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 7px 5px;
     width: 30px;
-    height: 30px;
-    cursor: pointer;
+    height: 25px;
 }
 
 .hamburger-menu-bar {
     width: 100%;
-    height: 2px;
-    background-color: #333; /* Color of the lines that make the hamburger */
+    height: 3px;
+    background: white;
     border-radius: 2px;
+    transition: background 0.3s ease;
+}
+
+.hamburger-menu:hover .hamburger-menu-bar {
+    background: #ffdf00;
 }
 
 .calorie-progress-bar {
     display: flex;
-    width: 500px;
-    height: 30px;
-    flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
 .calorie-progress-bar-container {
-    width: 90%;
-    height: 100%;
-    background-color: #ddd;
-    border-radius: 15px;
+    width: 400px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
     overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .calorie-progress-bar-fill {
-    width: 0%;
     height: 100%;
-    background-color: #4caf50;
-    border-radius: 15px 0 0 15px;
-    transition: width 0.3s ease-in-out;
+    background: #ff5722;
+    width: 50%; /* Adjust dynamically with JavaScript */
+    transition: width 0.3s ease;
 }
 
 .calorie-progress-bar-search-button {
-    background-color: white;
-    border: 1px solid black;
+    background: #34a853;
+    color: white;
+    border: none;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.profile-button {
+.calorie-progress-bar-search-button:hover {
+    transform: translateY(-3px);
+    background: #4caf50;
+}
+
+
+/*.profile-button {
     background: none;
     border: 1px solid black;
     cursor: pointer;
@@ -165,6 +233,45 @@ input[type="number"] {
     border-radius: 50%;
     cursor: pointer;
     font-size: 1.6rem;
+}*/
+
+.profile-button {
+    background: linear-gradient(45deg, #ff9800, #ff5722);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.profile-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #ff5722, #ff9800);
+}
+
+
+
+.back-button {
+    background: #34a853;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== Pages ===== */
@@ -357,13 +464,13 @@ input[type="number"] {
 
 /* Make the images fit within each box without distortion */
 .merchant-logo {
-    width: 100%; /* Fill the box width */
-    height: 100%; /* Fill the box height */
-    object-fit: contain; /* Ensure the image doesn't stretch, but fits the box */
+    width: 100%;
+    height: 100%; 
+    object-fit: contain; 
 }
 
 .cart-merchant {
-    width: 25%;
+    width: 35%;
     height: 500px;
     background-color: white;
     color: black;
@@ -396,6 +503,7 @@ input[type="number"] {
 }
 
 /* ===== Cart Page ===== */
+/*
 
 .layout-cart {
     position: absolute;
@@ -436,7 +544,111 @@ input[type="number"] {
     gap: 10px;
     overflow-y: auto;
     scroll-behavior: smooth;
+}*/
+
+#page-cart {
+    display: flex;
+    justify-content: center;
+    background-color: #f4f4f4;
+    padding: 20px 0;
+    overflow-x: hidden;
 }
+
+.layout-cart {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /*max-width: 1200px;*/
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.section-cart-left {
+    flex: 1;
+    padding: 10px;
+}
+
+.section-cart-left h1 {
+    font-size: 20rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.map-cart {
+    background-color: #e0e0e0;
+    height: 600px;
+    width: 700px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 200px;
+    color: #777;
+}
+
+.section-cart-right {
+    flex: 100;
+    padding: 10px;
+}
+
+.section-cart-right h1 {
+    font-size: 60rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+#scroll-list-cart {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.cart-item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+    flex: 1;
+}
+
+.cart-item-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.cart-item-price {
+    font-size: 1rem;
+    color: #34a853;
+    font-weight: bold;
+}
+
+
+.cart-total-text {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+
 
 /* ===== Popups ===== */
 
